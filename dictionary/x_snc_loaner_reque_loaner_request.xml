@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element extends="task" label="Loaner Request" max_length="40" name="x_snc_loaner_reque_loaner_request" sizeclass="2" type="collection">
+    <element extends="task" label="Loaner Request" max_length="40" name="x_snc_loaner_reque_loaner_request" sizeclass="4" type="collection">
         <element attributes="edge_encryption_enabled=true" default="Santa Clara" label="Depot" max_length="40" name="depot" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="1" default="cmdb_ci_computer" label="Item type" max_length="40" name="item_type" type="string">
             <choice>

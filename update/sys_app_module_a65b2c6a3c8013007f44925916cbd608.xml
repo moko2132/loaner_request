@@ -10,14 +10,14 @@
         <hint>create a new loaner request</hint>
         <homepage/>
         <image/>
-        <link_type>NEW</link_type>
+        <link_type>DIRECT</link_type>
         <map_page/>
         <mobile_title>Create New</mobile_title>
         <mobile_view_name>Mobile</mobile_view_name>
         <name>x_snc_loaner_reque_loaner_request</name>
         <order>200</order>
         <override_menu_roles>false</override_menu_roles>
-        <query/>
+        <query>com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id= f42c1fc73c8813007f44925916cbd610</query>
         <report/>
         <roles>x_snc_loaner_reque.loaner_request_user</roles>
         <survey/>
@@ -28,7 +28,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>a65b2c6a3c8013007f44925916cbd608</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>Create New</sys_name>
         <sys_overrides/>
         <sys_package display_value="Loaner Request" source="x_snc_loaner_reque">a3556ce63c8013007f44925916cbd618</sys_package>
@@ -36,7 +36,7 @@
         <sys_scope display_value="Loaner Request">a3556ce63c8013007f44925916cbd618</sys_scope>
         <sys_update_name>sys_app_module_a65b2c6a3c8013007f44925916cbd608</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-02-05 20:05:30</sys_updated_on>
+        <sys_updated_on>2018-02-07 22:41:39</sys_updated_on>
         <timeline_page/>
         <title>Create New</title>
         <uncancelable>false</uncancelable>

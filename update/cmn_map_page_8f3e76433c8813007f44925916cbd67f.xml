@@ -18,22 +18,11 @@ while(gr.next()){
 	//  Add copied  REST Message Script BELOW this line
 	
 	
-	
-	//  Add copied REST Message script ABOVE this line
-	
-	
-	// Extract latitude and longitude values from REST Message response
-	var xmlDoc = new XMLDocument2();
-	xmlDoc.parseXML(responseBody);
-	var myLat= xmlDoc.getNodeText("//latitude");
-	var myLong= xmlDoc.getNodeText("//longitude");
-	
-  
  var r = new sn_ws.RESTMessageV2('x_snc_loaner_reque.Get Lat Long', 'Default GET');
  r.setStringParameterNoEscape('lang', 'en');
- r.setStringParameterNoEscape('country',gr.requested_for.country);
+ r.setStringParameterNoEscape('country', gr.requested_for_country);
  r.setStringParameterNoEscape('count', '1');
- r.setStringParameterNoEscape('addr', gr.requested_for.city);
+ r.setStringParameterNoEscape('addr', gr.requested_for_city);
 
 //override authentication profile 
 //authentication type ='basic'/ 'oauth2'
@@ -44,7 +33,18 @@ while(gr.next()){
  var httpStatus = response.getStatusCode();
 
 
- var message = ex.getMessage();
+
+	
+	//  Add copied REST Message script ABOVE this line
+	
+	
+	// Extract latitude and longitude values from REST Message response
+	var xmlDoc = new XMLDocument2();
+	xmlDoc.parseXML(responseBody);
+	var myLat= xmlDoc.getNodeText("//latitude");
+	var myLong= xmlDoc.getNodeText("//longitude");
+	
+	// Plot each Requested for's location on a google map
 	var item = map.addItem(gr);
 	item.latitude = String(myLat);
 	item.longitude = String(myLong);
@@ -60,14 +60,14 @@ while(gr.next()){
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-02-07 20:01:24</sys_created_on>
         <sys_id>8f3e76433c8813007f44925916cbd67f</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>x_snc_loaner_reque_Requested for Locatio</sys_name>
         <sys_package display_value="Loaner Request" source="x_snc_loaner_reque">a3556ce63c8013007f44925916cbd618</sys_package>
         <sys_policy/>
         <sys_scope display_value="Loaner Request">a3556ce63c8013007f44925916cbd618</sys_scope>
         <sys_update_name>cmn_map_page_8f3e76433c8813007f44925916cbd67f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-02-07 21:13:29</sys_updated_on>
+        <sys_updated_on>2018-02-07 21:33:13</sys_updated_on>
         <type>terrain</type>
         <type_selection>buttons</type_selection>
     </cmn_map_page>

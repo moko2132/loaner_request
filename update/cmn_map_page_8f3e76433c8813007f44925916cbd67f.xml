@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="cmn_map_page">
+    <cmn_map_page action="INSERT_OR_UPDATE">
+        <center_address>Yogododji, Africa</center_address>
+        <center_latitude>14.883333</center_latitude>
+        <center_longitude>-1.766667</center_longitude>
+        <controls_size>large</controls_size>
+        <initial_zoom>2</initial_zoom>
+        <name>x_snc_loaner_reque_Requested for Locatio</name>
+        <overview>false</overview>
+        <refresh_on_zoom>false</refresh_on_zoom>
+        <script><![CDATA[var gr = new GlideRecord('x_snc_loaner_reque_loaner_request');
+gr.addEncodedQuery("active=true^requested_for.cityISNOTEMPTY");
+gr.query();
+
+while(gr.next()){
+	
+	//  Add copied  REST Message Script BELOW this line
+	
+	
+	
+	//  Add copied REST Message script ABOVE this line
+	
+	
+	// Extract latitude and longitude values from REST Message response
+	var xmlDoc = new XMLDocument2();
+	xmlDoc.parseXML(responseBody);
+	var myLat= xmlDoc.getNodeText("//latitude");
+	var myLong= xmlDoc.getNodeText("//longitude");
+	
+  
+ var r = new sn_ws.RESTMessageV2('x_snc_loaner_reque.Get Lat Long', 'Default GET');
+ r.setStringParameterNoEscape('lang', 'en');
+ r.setStringParameterNoEscape('country',gr.requested_for.country);
+ r.setStringParameterNoEscape('count', '1');
+ r.setStringParameterNoEscape('addr', gr.requested_for.city);
+
+//override authentication profile 
+//authentication type ='basic'/ 'oauth2'
+//r.setAuthentication(authentication type, profile name);
+
+ var response = r.execute();
+ var responseBody = response.getBody();
+ var httpStatus = response.getStatusCode();
+
+
+ var message = ex.getMessage();
+	var item = map.addItem(gr);
+	item.latitude = String(myLat);
+	item.longitude = String(myLong);
+	item.dialog_title = gr.getDisplayValue();
+	item.icon = "https://maps.google.com/mapfiles/ms/micons/yellow.png";
+	item.icon_width = "32";
+	item.icon_height = "32";
+}
+]]></script>
+        <show_device_location>true</show_device_location>
+        <suffix>Requested for Locations</suffix>
+        <sys_class_name>cmn_map_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-02-07 20:01:24</sys_created_on>
+        <sys_id>8f3e76433c8813007f44925916cbd67f</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>x_snc_loaner_reque_Requested for Locatio</sys_name>
+        <sys_package display_value="Loaner Request" source="x_snc_loaner_reque">a3556ce63c8013007f44925916cbd618</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Loaner Request">a3556ce63c8013007f44925916cbd618</sys_scope>
+        <sys_update_name>cmn_map_page_8f3e76433c8813007f44925916cbd67f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-02-07 21:13:29</sys_updated_on>
+        <type>terrain</type>
+        <type_selection>buttons</type_selection>
+    </cmn_map_page>
+</record_update>
